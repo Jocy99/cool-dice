@@ -1,0 +1,19 @@
+{
+   "name": "cool-dice",
+   "version": "1.0.0",
+   "description": "really fun cool dice game",
+   "main": "server/server.js",
+   "scripts": {
+      "start": "node server/server.js",
+      "seed": "cd server && npm run seed",
+      "build": "cd client && npm run build",
+      "install": "cd server && npm i && cd ../client && npm i",
+      "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\""
+   },
+   "keywords": [],
+   "author": "starshipog, ktortolini, muddabirm, jocy99",
+   "license": "GNU v3",
+   "devDependencies": {
+      "concurrently": "^8.2.0"
+   }
+}
