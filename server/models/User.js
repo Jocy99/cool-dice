@@ -21,12 +21,12 @@ const userSchema = new Schema({
     minlength: 5,
   },
   // can we use thoughts for users to be more interactive?
-  // thoughts: [
-  //   {
-  //     type: Schema.Types.ObjectId,
-  //     ref: 'Thought',
-  //   },
-  // ],
+  scores: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Score',
+    },
+  ],
 });
 
 userSchema.pre('save', async function (next) {

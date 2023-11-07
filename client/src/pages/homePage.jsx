@@ -1,29 +1,24 @@
-import { useQuery } from '@apollo/client';
+import React from 'react';
+import Highscores from '../components/HighScores';
+import Login from '../components/Login';
 
 const Home = () => {
-
-  return (
-    <main>
-      <div className="flex-row justify-center">
-        <div
-          className="col-12 col-md-10 mb-3 p-3"
-          style={{ border: '1px dotted #1a1a1a' }}
-        >
-          <ThoughtForm />
-        </div>
-        <div className="col-12 col-md-8 mb-3">
-          {loading ? (
-            <div>Loading...</div>
-          ) : (
-            <ThoughtList
-              thoughts={thoughts}
-              title="Some Feed for Thought(s)..."
-            />
-          )}
-        </div>
-      </div>
-    </main>
-  );
+   return (
+      <>
+         <div id="highscoreSection" className="f-row">
+            <h1>Welcome to Cool Dice!</h1>
+            <p>
+               {' '}
+               Log in and compete with the computer to roll two dice, aiming to
+               achieve the highest possible rolled number. Goodluck!{' '}
+            </p>
+            <Highscores />
+         </div>
+         <div id="loginSection" className="f-row">
+            <Login />
+         </div>
+      </>
+   );
 };
 
 export default Home;

@@ -2,36 +2,36 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App.jsx';
-import gamePage from './pages/gamePage';
-import homePage from './pages/homePage';
-import signupPage from './pages/signupPage';
-import userPage from './pages/userPage';
+import GamePage from './pages/gamePage';
+import HomePage from './pages/homePage';
+import Signup from './pages/Signup.jsx';
+import UserPage from './pages/userPage';
 
 const router = createBrowserRouter([
    {
       path: '/',
       element: <App />,
-      errorElement: <ErrorPage />,
+      // errorElement: <ErrorPage />,
       children: [
          {
             index: true,
-            element: <homePage />,
+            element: <HomePage />,
          },
          {
             path: '/dice-game',
-            element: <gamePage />,
+            element: <GamePage />,
          },
          {
             path: '/game-page',
-            element: <gamePage />,
+            element: <GamePage />,
          },
          {
-            path: '/signup-page',
-            element: <signupPage />,
+            path: '/signup',
+            element: <Signup />,
          },
          {
             path: '/user/:username',
-            element: <userPage />,
+            element: <UserPage />,
          },
       ],
    },

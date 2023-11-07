@@ -17,6 +17,11 @@ const scoreSchema = new Schema({
       type: Date,
       default: Date.toLocaleString(),
    },
+   username: {
+      type: String,
+      required: true,
+      trim: true
+   }
 });
 
 const Score = model('Score', scoreSchema);
