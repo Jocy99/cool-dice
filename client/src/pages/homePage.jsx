@@ -1,29 +1,42 @@
 import { useQuery } from '@apollo/client';
+import { Link } from 'react-router-dom';
 
-const Home = () => {
-
-  return (
-    <main>
-      <div className="flex-row justify-center">
-        <div
-          className="col-12 col-md-10 mb-3 p-3"
-          style={{ border: '1px dotted #1a1a1a' }}
-        >
-          <ThoughtForm />
-        </div>
-        <div className="col-12 col-md-8 mb-3">
-          {loading ? (
-            <div>Loading...</div>
-          ) : (
-            <ThoughtList
-              thoughts={thoughts}
-              title="Some Feed for Thought(s)..."
-            />
-          )}
-        </div>
-      </div>
-    </main>
-  );
+const navStyles = {
+   textAlign: 'center',
 };
 
-export default Home;
+const homePage = () => {
+   return (
+      <main>
+         <section className="bdy-container">
+            <header>
+               <h3 style={{ ...navStyles }}>High-Scores</h3>
+            </header>
+            <section className="grid">
+               <p className="t-row grid-item-name-0">Name</p>
+               <p className="t-row grid-item-num-0">Rolls</p>
+               <p className="t-row grid-item-score-0">Wins</p>
+            </section>
+            <section className="grphc-container score-scroll block"></section>
+            <section>
+               <form className="f-row block login-form">
+                  <div className="inv-fieldset">
+                     <label id="username-label">Name:</label>
+                     <span className="in-row">
+                        <input
+                           id="username-row"
+                           placeholder="User Name"
+                        />
+                     </span>
+                  </div>
+                  <button className="i-row" type="submit">
+                     Login
+                  </button>
+               </form>
+            </section>
+         </section>
+      </main>
+   );
+};
+
+export default homePage;
