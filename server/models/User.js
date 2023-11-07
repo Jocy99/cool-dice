@@ -1,6 +1,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
+// creates a new instance of the mongoose schema to define the structure of User documents
 const userSchema = new Schema({
   username: {
     type: String,
@@ -19,12 +20,13 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  thoughts: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Thought',
-    },
-  ],
+  // can we use thoughts for users to be more interactive?
+  // thoughts: [
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: 'Thought',
+  //   },
+  // ],
 });
 
 userSchema.pre('save', async function (next) {
