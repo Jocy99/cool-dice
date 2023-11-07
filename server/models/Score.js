@@ -1,19 +1,22 @@
-const { Schema, Types, model } = require("mongoose");
+const { Schema, model } = require('mongoose');
 
 const scoreSchema = new Schema({
-    score: {
-        type: Number,
-        required: true,
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now,
-        // get: timestamp () get date format from mini project
-    },
-    username: {
-        type: String,
-        required: true,
-    }, 
+   totalRolls: {
+      type: Number,
+      default: 0,
+   },
+   totalWins: {
+      type: Number,
+      default: 0,
+   },
+   totalLosses: {
+      type: Number,
+      default: 0,
+   },
+   createdAt: {
+      type: Date,
+      default: Date.toLocaleString(),
+   },
 });
 
 const Score = model('Score', scoreSchema);

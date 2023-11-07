@@ -70,3 +70,8 @@ Open your web browser and go to `http://localhost:3001` to access the applicatio
 
 ## License
 This project is licensed under the GNU v3 license. 
+
+citations:
+
+backdrop file for the homepage
+https://www.flickr.com/photos/100308402@N06/35746407061
