@@ -32,7 +32,7 @@ article {
 
 .backdrop {
    mix-blend-mode: lighten;
-   background-size: contain;
+   background-size: cover;
    background-image: url('../../../public/backdrop.jpg');
 }
 
