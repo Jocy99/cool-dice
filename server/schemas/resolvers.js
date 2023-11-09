@@ -1,19 +1,23 @@
-const { User, Thought } = require('../models');
+const { User } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
   Query: {
     users: async () => {
+      // use the User model to fetch User data from MongoDB
       return User.find().populate('scores');
     },
     user: async (parent, { username }) => {
+      // return single user based on ID
       return User.findOne({ username }).populate('scores');
     },
     scores: async (parent, { username }) => {
       const params = username ? { username } : {};
+      // use the Score model to fetch score data from MongoDB
       return Score.find(params).sort({ createdAt: -1 });
     },
     score: async (parent, { scoreId }) => {
+      // find a single score by its ID
       return Score.findOne({ _id: scoreId });
     },
     me: async (parent, args, context) => {
