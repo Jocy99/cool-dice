@@ -1,16 +1,41 @@
-import { useRouteError } from "react-router-dom";
+import { useQuery } from '@apollo/client';
+import { Link } from 'react-router-dom';
 
-export default function ErrorPage() {
-  const error = useRouteError();
-  console.error(error);
+const playingStyles = {
+   textAlign: 'center',
+};
 
-  return (
-    <div id="error-page">
-      <h1>Oops!</h1>
-      <p>Sorry, an unexpected error has occurred.</p>
-      <p>
-        <i>{error.statusText || error.message}</i>
-      </p>
-    </div>
-  );
-}
+const gamePage = () => {
+   return (
+      <main>
+         <section className="bdy-container">
+            <section className="i-row block">
+               <article className="i-col inline-flex">
+                  <span className="grphc-container" id="com">
+                     <img
+                        id="dice"
+                        alt="dice image here"
+                        src=""
+                        width="85"
+                        height="121"
+                     />
+                  </span>
+               </article>
+               <article className="i-col inline-flex">
+                  <span className="grphc-container" id="player">
+                     <img
+                        id="dice"
+                        alt="dice image here"
+                        src=""
+                        width="85"
+                        height="121"
+                     />
+                  </span>
+               </article>
+            </section>
+         </section>
+      </main>
+   );
+};
+
+export default gamePage;
