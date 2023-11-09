@@ -23,13 +23,10 @@ const homePage = () => {
                   <div className="inv-fieldset">
                      <label id="username-label">Name:</label>
                      <span className="in-row">
-                        <input
-                           id="username-row"
-                           placeholder="User Name"
-                        />
+                        <input id="username-row" placeholder="User Name" />
                      </span>
                   </div>
-                  <button className="i-row" type="submit">
+                  <button className="ii-row btn-row" type="submit">
                      Login
                   </button>
                </form>
