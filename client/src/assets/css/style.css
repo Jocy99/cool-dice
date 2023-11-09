@@ -31,7 +31,7 @@ article {
 }
 
 .backdrop {
-   mix-blend-mode: lighten;
+   mix-blend-mode: normal;
    background-size: cover;
    background-image: url('../../../public/backdrop.jpg');
 }
@@ -56,6 +56,20 @@ article {
    padding: 3.5rem !important;
    border-width: 40px !important;
    border-image-slice: 30 !important;
+}
+
+.ii-row {
+   /* changes the border sizing */
+   margin-top: 1.2rem;
+   padding: 0 !important;
+   max-width: 75% !important;
+   border-image-slice: 18 !important;
+   /* additional attributes */
+   border-width: 40px;
+   border-style: solid;
+   /* border image attributes */
+   border-image: var(--half-frame) 40 stretch;
+   background-color: hsla(215, 32%, 58%, 0.9) !important;
 }
 
 .f-row {
