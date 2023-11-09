@@ -1,4 +1,35 @@
+import { useEffect, useRef, useState } from 'react';
+
 export default function DiceComponent() {
+   // adds the player specific state
+   const [playerRoll, setPlayerRoll] = useState(~~(Math.random() * 5 + 1));
+   // adds the computer specific state
+   const [computerRoll, setComputerRoll] = useState(~~(Math.random() * 5 + 1));
+   // adds an iteration state counter for effect
+   const [diceIterations, setDiceIterations] = useState(0);
+   // adds the use ref for counting the interval
+   const intervalRef = useRef();
+   // adds an effect to clear the interval
+   useEffect(() => {
+      if (diceIterations > 15) {
+         clearInterval(intervalRef.current);
+      }
+      // this is for debugging purposes
+      console.log(`if (${diceIterations} > 15) {...}`);
+      console.log(`clearInterval(${intervalRef.current});`);
+   }, [diceIterations]);
+   // adds a function for rolling dice
+   function rollDie() {
+      // adds the dice rolling animation effect
+      intervalRef.current = setInterval(() => {
+         // uses the setter functions to update the states
+         setPlayerRoll(Math.floor(Math.random() * 5 + 1));
+         setComputerRoll(Math.floor(Math.random() * 5 + 1));
+         // adds a reducer function to pass previous state
+         setDiceIterations((diceIterations) => diceIterations + 1);
+      }, 20);
+   }
+   // adds a function to get the dice images
    function getDiceImage(number) {
       switch (number) {
          case 1: {
@@ -21,6 +52,7 @@ export default function DiceComponent() {
          }
       }
    }
+   // returns the jsx to the front end
    return (
       <section className="bdy-container">
          <section className="i-row block">
@@ -29,7 +61,7 @@ export default function DiceComponent() {
                   <img
                      id="computer-dice"
                      alt="dice image here"
-                     src={getDiceImage(1)}
+                     src={getDiceImage(computerRoll)}
                      width="85"
                      height="121"
                   />
@@ -40,7 +72,7 @@ export default function DiceComponent() {
                   <img
                      id="player-dice"
                      alt="dice image here"
-                     src={getDiceImage(1)}
+                     src={getDiceImage(playerRoll)}
                      width="85"
                      height="121"
                   />
@@ -48,7 +80,9 @@ export default function DiceComponent() {
             </article>
          </section>
          <section>
-            <button className="btn-row">Roll</button>
+            <button className="btn-row" onClick={rollDie}>
+               Roll
+            </button>
          </section>
       </section>
    );
