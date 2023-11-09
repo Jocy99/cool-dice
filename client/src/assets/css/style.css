@@ -26,7 +26,8 @@ label {
 }
 
 article {
-   width: 100%;
+   min-width: 35%;
+   max-width: 75%;
 }
 
 .backdrop {
@@ -51,8 +52,10 @@ article {
 
 .i-row {
    /* changes the border sizing */
-   border-width: 14px !important;
-   border-image-slice: 5 !important;
+   max-width: 75% !important;
+   padding: 3.5rem !important;
+   border-width: 40px !important;
+   border-image-slice: 30 !important;
 }
 
 .f-row {
