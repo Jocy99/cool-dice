@@ -1,16 +1,23 @@
-import { useRouteError } from "react-router-dom";
+// import { useQuery } from '@apollo/client';
+// import { Link } from 'react-router-dom';
 
-export default function ErrorPage() {
-  const error = useRouteError();
-  console.error(error);
+import DiceComponent from '../components/DiceComponent';
 
-  return (
-    <div id="error-page">
-      <h1>Oops!</h1>
-      <p>Sorry, an unexpected error has occurred.</p>
-      <p>
-        <i>{error.statusText || error.message}</i>
-      </p>
-    </div>
-  );
-}
+const navStyles = {
+   textAlign: 'center',
+};
+
+const gamePage = () => {
+   return (
+      <main>
+         <section className="bdy-container">
+            <header>
+               <h3 style={{ ...navStyles }}>Cool Dice Game</h3>
+            </header>
+            <DiceComponent />
+         </section>
+      </main>
+   );
+};
+
+export default gamePage;
