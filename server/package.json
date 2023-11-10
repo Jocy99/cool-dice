@@ -12,7 +12,7 @@
    "author": "starshipog, ktortolini, muddabirm, jocy99",
    "license": "GNU v3",
    "dependencies": {
-      "bcrypt": "^5.0.0",
+      "bcrypt": "^4.0.1",
       "mongoose": "^7.0.2",
       "express": "^4.17.2",
       "graphql": "^16.6.0",
