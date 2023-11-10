@@ -21,7 +21,7 @@ export default function Highscores() {
    ];
    return (
       <>
-         <h3> Highscores: </h3>
+         <h3 className='p-row'> Highscores: </h3>
          <ul>
             {highScores.map(({ username, score }) => (
                <li>

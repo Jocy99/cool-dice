@@ -9,7 +9,7 @@ const Home = () => {
             <h1>Welcome to Cool Dice!</h1>
             <p>
                {' '}
-               Log in and compete with the computer to roll two dice, aiming to
+               Log in or create an account to compete with the computer to roll two dice, aiming to
                achieve the highest possible rolled number. Goodluck!{' '}
             </p>
             <Highscores />
@@ -57,4 +57,4 @@ const homePage = () => {
    );
 };
 
-export default homePage;
+export default Home;
