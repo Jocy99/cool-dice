@@ -5,7 +5,7 @@ import Login from '../components/Login';
 const Home = () => {
    return (
       <>
-         <div id="highscoreSection" className="f-row">
+         <div id="highscoreSection" className="c-row">
             <h1>Welcome to Cool Dice!</h1>
             <p>
                {' '}

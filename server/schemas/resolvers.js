@@ -27,7 +27,7 @@ const resolvers = {
       throw AuthenticationError;
     },
   },
-
+// define the functions that will fullfill the mutations
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });

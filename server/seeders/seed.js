@@ -1,33 +1,33 @@
-const db = require('../config/connection');
-const { User, Thought } = require('../models');
-const userSeeds = require('./userSeeds.json');
-const thoughtSeeds = require('./thoughtSeeds.json');
-const cleanDB = require('./cleanDB');
+// const db = require('../config/connection');
+// const { User, Score } = require('../models');
+// const userSeeds = require('./userSeeds.json');
+// const scoreSeeds = require('./scoreSeeds');
+// const cleanDB = require('./cleanDB');
 
-db.once('open', async () => {
-   try {
-      await cleanDB('Thought', 'thoughts');
+// db.once('open', async () => {
+//    try {
+//       await cleanDB('Score', 'scores');
 
-      await cleanDB('User', 'users');
+//       await cleanDB('User', 'users');
 
-      await User.create(userSeeds);
+//       await User.create(userSeeds);
 
-      for (let i = 0; i < thoughtSeeds.length; i++) {
-         const { _id, thoughtAuthor } = await Thought.create(thoughtSeeds[i]);
-         const user = await User.findOneAndUpdate(
-            { username: thoughtAuthor },
-            {
-               $addToSet: {
-                  thoughts: _id,
-               },
-            }
-         );
-      }
-   } catch (err) {
-      console.error(err);
-      process.exit(1);
-   }
+//       for (let i = 0; i < scoreSeeds.length; i++) {
+//          const { _id, scoreAuthor } = await Score.create(scoreSeeds[i]);
+//          const user = await User.findOneAndUpdate(
+//             { username: scoreAuthor },
+//             {
+//                $addToSet: {
+//                   score: _id,
+//                },
+//             }
+//          );
+//       }
+//    } catch (err) {
+//       console.error(err);
+//       process.exit(1);
+//    }
 
-   console.log('all done!');
-   process.exit(0);
-});
+//    console.log('all done!');
+//    process.exit(0);
+// });
