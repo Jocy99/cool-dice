@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 
 export default function Highscores() {
    // issue graphQl query to get highscores here
@@ -24,7 +24,7 @@ export default function Highscores() {
          <h3> Highscores: </h3>
          <ul>
             {highScores.map(({ username, score }) => (
-               <li>
+               <li key={username.id}>
                   {username}: {score}
                </li>
             ))}
