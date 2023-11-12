@@ -1,23 +1,23 @@
 {
-   "name": "cool-dice-server",
+   "name": "cool-dice-game",
    "version": "1.0.0",
-   "description": "really fun cool dice game",
+   "description": "",
    "main": "server.js",
    "scripts": {
-      "watch": "nodemon",
       "start": "node server.js",
+      "watch": "nodemon",
       "seed": "node seeders/seed.js"
    },
    "keywords": [],
-   "author": "starshipog, ktortolini, muddabirm, jocy99",
-   "license": "GNU v3",
+   "author": "",
+   "license": "GNU v3.0",
    "dependencies": {
-      "bcrypt": "^4.0.1",
-      "mongoose": "^7.0.2",
+      "@apollo/server": "^4.7.1",
+      "bcrypt": "^5.0.0",
       "express": "^4.17.2",
       "graphql": "^16.6.0",
       "jsonwebtoken": "^8.5.1",
-      "@apollo/server": "^4.7.1"
+      "mongoose": "^7.0.2"
    },
    "devDependencies": {
       "nodemon": "^2.0.3"
