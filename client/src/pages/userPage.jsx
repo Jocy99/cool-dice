@@ -28,6 +28,10 @@ const User = () => {
         {profile.name}'s friends have endorsed these skills...
       </h2> */}
 
+      {<h1>
+        High Scores  
+      </h1>}
+
  
       {<HighScores/>}
       {/* {profile.skills?.length > 0 && <HighScores skills={profile.skills} />} */}
