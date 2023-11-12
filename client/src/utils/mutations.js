@@ -25,19 +25,19 @@ export const ADD_USER = gql`
 `;
 
 // will this be used as a Score mutation??????
-// export const ADD_THOUGHT = gql`
-//   mutation addThought($thoughtText: String!) {
-//     addThought(thoughtText: $thoughtText) {
-//       _id
-//       thoughtText
-//       thoughtAuthor
-//       createdAt
-//       comments {
-//         _id
-//         commentText
-//       }
-//     }
-//   }
+export const ADD_THOUGHT = gql`
+  mutation addThought($thoughtText: String!) {
+    addThought(thoughtText: $thoughtText) {
+      _id
+      thoughtText
+      thoughtAuthor
+      createdAt
+      comments {
+        _id
+        commentText
+      }
+    }
+  }
 `;
 
 export const ADD_COMMENT = gql`
