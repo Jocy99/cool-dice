@@ -56,6 +56,7 @@ article {
    padding: 3.5rem !important;
    border-width: 40px !important;
    border-image-slice: 30 !important;
+   background-color: hsla(215, 32%, 58%, 0.8) !important;
 }
 
 .ii-row {
@@ -72,8 +73,13 @@ article {
    background-color: hsla(215, 32%, 58%, 0.9) !important;
 }
 
+.i-col {
+   background-color: hsl(215, 32%, 58%) !important;
+}
+
 .f-row {
    max-width: 75%;
+   background-color: hsla(215, 32%, 58%, 0.75) !important;
 }
 
 .grid {
