@@ -15,6 +15,13 @@ export default function RegisterComponent() {
       password: '',
    });
    const [addUser, { error }] = useMutation(ADD_USER);
+   // adds the styling for header
+   const headerStyles = {
+      margin: '10px',
+      textAlign: 'center',
+      /* font attributes */
+      fontWeight: '400',
+   };
    const handleChange = (event) => {
       const { name, value } = event.target;
 
@@ -41,7 +48,9 @@ export default function RegisterComponent() {
       <div className="col-12 col-lg-10">
          <div className="card">
             <ul>
-               <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
+               <h4 className="t-row" style={{ ...headerStyles }}>
+                  Sign Up
+               </h4>
             </ul>
             <div className="card-body">
                {RegisterComponent.data ? (
@@ -50,53 +59,49 @@ export default function RegisterComponent() {
                      <Link to="/">back to the homepage.</Link>
                   </p>
                ) : (
-                  <form onSubmit={handleFormSubmit}>
-                     <ul
+                  <form onSubmit={handleFormSubmit}> 
+                     <div
                         className="f-row flex"
-                        style={{ flexDirection: 'column' }}
+                        style={{
+                           flexDirection: 'column',
+                           borderImageSlice: '60',
+                        }}
                      >
-                        <input
-                           className="form-input"
-                           style={{ marginBottom: '10px' }}
-                           placeholder="Your username"
-                           name="username"
-                           type="text"
-                           value={formState.name}
-                           onChange={handleChange}
-                        />
-                        <input
-                           className="form-input"
-                           style={{ marginBottom: '10px' }}
-                           placeholder="Your email"
-                           name="email"
-                           type="email"
-                           value={formState.email}
-                           onChange={handleChange}
-                        />
-                        <input
-                           className="form-input"
-                           style={{ marginBottom: '10px' }}
-                           placeholder="******"
-                           name="password"
-                           type="password"
-                           value={formState.password}
-                           onChange={handleChange}
-                        />
-                        <button
-                           className="btn btn-block btn-primary"
-                           style={{ cursor: 'pointer' }}
-                           type="submit"
-                        >
-                           Submit
+                        <span className="in-row">
+                           <input
+                              style={{ marginBottom: '10px' }}
+                              placeholder="username"
+                              name="username"
+                              type="text"
+                              value={formState.name}
+                              onChange={handleChange}
+                           />
+                        </span>
+                        <span className="in-row">
+                           <input
+                              style={{ marginBottom: '10px' }}
+                              placeholder="email"
+                              name="email"
+                              type="email"
+                              value={formState.email}
+                              onChange={handleChange}
+                           />
+                        </span>
+                        <span className="in-row">
+                           <input
+                              style={{ marginBottom: '10px' }}
+                              placeholder="******"
+                              name="password"
+                              type="password"
+                              value={formState.password}
+                              onChange={handleChange}
+                           />
+                        </span>
+                        <button className="ii-row btn-row" type="submit">
+                           Register
                         </button>
-                     </ul>
+                     </div>
                   </form>
-               )}
-
-               {error && (
-                  <div className="my-3 p-3 bg-danger text-white">
-                     {error.message}
-                  </div>
                )}
             </div>
          </div>
