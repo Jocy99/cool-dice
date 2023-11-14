@@ -1,10 +1,6 @@
 import { useQuery } from '@apollo/client';
 import { QUERY_USERS } from '../utils/queries';
 // import { Link } from 'react-router-dom';
-// import { useState } from 'react';
-// import { Link } from 'react-router-dom';
-// import { useMutation } from '@apollo/client';
-// import { LOGIN_USER } from '../utils/mutations';
 
 // import { User } from '../../../server/models';
 import LoginComponent from '../components/LoginComponent';
