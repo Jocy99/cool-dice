@@ -80,7 +80,16 @@ export default function DiceComponent() {
             </article>
          </section>
          <section>
-            <button className="btn-row" onClick={rollDie}>
+            <button
+               className="btn-row"
+               onClick={rollDie}
+               style={{
+                  display: 'block',
+                  marginTop: '4rem',
+                  transform: 'scale(2.5)',
+                  backgroundColor: 'hsla(215, 32%, 58%, 0.65)',
+               }}
+            >
                Roll
             </button>
          </section>
