@@ -1,11 +1,26 @@
 import { useQuery } from '@apollo/client';
 import { QUERY_USERS } from '../utils/queries';
+// import React, { useState } from 'react';
+
 
 export default function HighScores() {
    const { loading, data } = useQuery(QUERY_USERS);
 
    const userList = data?.users || [];
-
+   const highScores = [
+      {
+         username: 'Cool Joe',
+         score: '15',
+      },
+      {
+         username: 'Amazing Americas',
+         score: '13',
+      },
+      {
+         username: 'Frank The Tank',
+         score: '12',
+      },
+   ];
    function showScores(data) {
       // grabs the container element for dynamic creation
       const scrollContainer = document.querySelector('.score-scroll');
@@ -99,4 +114,17 @@ export default function HighScores() {
          }
       });
    }
+
+   return (
+      <>
+         <h3> Highscores: </h3>
+         <ul>
+            {highScores.map(({ username, score }) => (
+               <li key={username.id}>
+                  {username}: {score}
+               </li>
+            ))}
+         </ul>
+      </>
+   );
 }

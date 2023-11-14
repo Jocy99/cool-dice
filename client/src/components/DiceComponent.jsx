@@ -1,6 +1,5 @@
-// imports useEffect, useRef, and useState from react
 import { useEffect, useRef, useState } from 'react';
-// adds a component for the dice
+
 export default function DiceComponent() {
    // adds the player specific state
    const [playerRoll, setPlayerRoll] = useState(~~(Math.random() * 5 + 1));
