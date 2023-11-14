@@ -1,11 +1,12 @@
-<<<<<<< HEAD
+import { useQuery } from '@apollo/client';
+import { QUERY_USERS } from '../utils/queries';
 // import React, { useState } from 'react';
 
-export default function Highscores() {
-   // issue graphQl query to get highscores here
-   // render highscores
 
-   // fake data:
+export default function HighScores() {
+   const { loading, data } = useQuery(QUERY_USERS);
+
+   const userList = data?.users || [];
    const highScores = [
       {
          username: 'Cool Joe',
@@ -20,27 +21,6 @@ export default function Highscores() {
          score: '12',
       },
    ];
-   return (
-      <>
-         <h3> Highscores: </h3>
-         <ul>
-            {highScores.map(({ username, score }) => (
-               <li key={username.id}>
-                  {username}: {score}
-               </li>
-            ))}
-         </ul>
-      </>
-   );
-=======
-import { useQuery } from '@apollo/client';
-import { QUERY_USERS } from '../utils/queries';
-
-export default function HighScores() {
-   const { loading, data } = useQuery(QUERY_USERS);
-
-   const userList = data?.users || [];
-
    function showScores(data) {
       // grabs the container element for dynamic creation
       const scrollContainer = document.querySelector('.score-scroll');
@@ -134,5 +114,17 @@ export default function HighScores() {
          }
       });
    }
->>>>>>> d86fccd1ef94c5849e89900237ab8e3c78c16bb8
+
+   return (
+      <>
+         <h3> Highscores: </h3>
+         <ul>
+            {highScores.map(({ username, score }) => (
+               <li key={username.id}>
+                  {username}: {score}
+               </li>
+            ))}
+         </ul>
+      </>
+   );
 }
