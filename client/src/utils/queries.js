@@ -1,6 +1,5 @@
 // imports the apollo client
 import { gql } from '@apollo/client';
-<<<<<<< HEAD
 
 export const QUERY_USER = gql`
   query allUsers {
@@ -21,18 +20,3 @@ export const QUERY_USER = gql`
 //   }
 // `;
 
-=======
-// exports reading query from apollo
-export const QUERY_USERS = gql`
-   query Users {
-      users {
-         email
-         username
-         scores {
-            totalRolls
-            totalWins
-         }
-      }
-   }
-`;
->>>>>>> 8ef72717ddecb3a73ddcccbb7a3f894eb609e601
