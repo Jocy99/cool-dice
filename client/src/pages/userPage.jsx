@@ -28,9 +28,9 @@ const User = () => {
         {profile.name}'s friends have endorsed these skills...
       </h2> */}
 
-      {<h1>
+      {/* {<h1>
         High Scores  
-      </h1>}
+      </h1>} */}
 
  
       {<HighScores/>}
