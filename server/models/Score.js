@@ -1,5 +1,6 @@
+// imports the schema and model from mongoose
 const { Schema, model } = require('mongoose');
-
+// adds a new schema called scoreSchema
 const scoreSchema = new Schema({
    totalRolls: {
       type: Number,
@@ -9,21 +10,8 @@ const scoreSchema = new Schema({
       type: Number,
       default: 0,
    },
-   totalLosses: {
-      type: Number,
-      default: 0,
-   },
-   createdAt: {
-      type: Date,
-      default: Date.toLocaleString(),
-   },
-   username: {
-      type: String,
-      required: true,
-      trim: true
-   }
 });
-
+// adds a new model called Score using the scoreSchema
 const Score = model('Score', scoreSchema);
-
+// exports the model
 module.exports = Score;

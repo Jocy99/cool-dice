@@ -1,7 +1,7 @@
+// imports the schema and model from mongoose
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-
-// creates a new instance of the mongoose schema to define the structure of User documents
+// adds a new schema called userSchema
 const userSchema = new Schema({
    username: {
       type: String,
@@ -20,7 +20,6 @@ const userSchema = new Schema({
       required: true,
       minlength: 5,
    },
-   // can we use thoughts for users to be more interactive?
    scores: [
       {
          type: Schema.Types.ObjectId,
@@ -28,8 +27,7 @@ const userSchema = new Schema({
       },
    ],
 });
-
-// hash's the User's password then 
+// adds a function that hashes the password before saving a user
 userSchema.pre('save', async function (next) {
    if (this.isNew || this.isModified('password')) {
       const saltRounds = 10;
@@ -38,11 +36,11 @@ userSchema.pre('save', async function (next) {
 
    next();
 });
-
+// adds a function that compares the password to the hashed password
 userSchema.methods.isCorrectPassword = async function (password) {
    return bcrypt.compare(password, this.password);
 };
-
+// adds a new model called User using the userSchema
 const User = model('User', userSchema);
-
+// exports the model
 module.exports = User;
