@@ -5,7 +5,7 @@ const typeDefs = `
     username: String
     email: String
     password: String
-    scores: [Score]!
+    score: Score
   }
   type Score {
     _id: ID

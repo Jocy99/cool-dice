@@ -1,15 +1,35 @@
 // imports useEffect, useRef, and useState from react
+import { useMutation } from '@apollo/client';
 import { useEffect, useRef, useState } from 'react';
+// adds the add score mutation
+import Auth from '../utils/auth';
+import { ADD_SCORE } from '../utils/mutations';
+import { QUERY_ME } from '../utils/queries';
 // adds a component for the dice
 export default function DiceComponent() {
+   // adds use state for keeping track of rolls
+   const [numberRolls, setNumberRolls] = useState(
+      Auth.getProfile().data.totalRolls
+   );
+   const [numberWins, setNumberWins] = useState(
+      Auth.getProfile().data.totalWins
+   );
    // adds the player specific state
    const [playerRoll, setPlayerRoll] = useState(~~(Math.random() * 5 + 1));
    // adds the computer specific state
    const [computerRoll, setComputerRoll] = useState(~~(Math.random() * 5 + 1));
    // adds an iteration state counter for effect
    const [diceIterations, setDiceIterations] = useState(0);
+   // adds the mutation for adding a score
+   const [AddScore, { error }] = useMutation(ADD_SCORE, {
+      refetchQueries: [QUERY_ME, 'me'],
+   });
+   useEffect(() => {
+      console.log('useEffect error:', error);
+   }, [error]);
    // adds the use ref for counting the interval
    const intervalRef = useRef();
+   console.log('auth message', Auth.getProfile(), numberWins);
    // adds an effect to clear the interval
    useEffect(() => {
       if (diceIterations > 15) {
@@ -20,7 +40,14 @@ export default function DiceComponent() {
       console.log(`clearInterval(${intervalRef.current});`);
    }, [diceIterations]);
    // adds a function for rolling dice
-   function rollDie() {
+   async function rollDie() {
+      // sets the number of rolls for the user
+      setNumberRolls(numberRolls + 1);
+      if (playerRoll > computerRoll) {
+         setNumberWins(numberWins + 1);
+      } else if (playerRoll === computerRoll) {
+         setNumberWins(numberWins + 0.5);
+      }
       // adds the dice rolling animation effect
       intervalRef.current = setInterval(() => {
          // uses the setter functions to update the states
@@ -29,6 +56,16 @@ export default function DiceComponent() {
          // adds a reducer function to pass previous state
          setDiceIterations((diceIterations) => diceIterations + 1);
       }, 20);
+      try {
+         const { data } = await AddScore({
+            variables: { totalRolls: numberRolls, totalWins: numberWins },
+         });
+         console.log('data here:', data);
+      } catch (err) {
+         console.error('error here:', err);
+      }
+      // AddScore({ totalRolls: 1, totalWins: 5 });
+      console.log(`AddScore(${numberRolls}, ...)`);
    }
    // adds a function to get the dice images
    function getDiceImage(number) {

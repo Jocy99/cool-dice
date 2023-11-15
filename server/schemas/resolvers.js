@@ -7,7 +7,7 @@ const resolvers = {
    Query: {
       // adds the read functions here
       users: async () => {
-         return User.find().populate('scores');
+         return User.find().populate('score');
       },
       user: async (parent, { userId }) => {
          return User.findOne({ _id: userId });
@@ -27,7 +27,7 @@ const resolvers = {
          return { token, user };
       },
       login: async (parent, { email, password }) => {
-         const user = await User.findOne({ email });
+         const user = await User.findOne({ email }).populate('score');
          if (!user) {
             throw AuthenticationError;
          }
@@ -35,7 +35,15 @@ const resolvers = {
          if (!correctPw) {
             throw AuthenticationError;
          }
-         const token = signToken(user);
+         const totalRolls = user.score.totalRolls;
+         const totalWins = user.score.totalWins;
+         const newUser = {
+            ...user,
+            totalRolls,
+            totalWins,
+         };
+         console.log('$$$', newUser);
+         const token = signToken(newUser);
          return { token, user };
       },
       addScore: async (parent, { totalRolls, totalWins }, context) => {
@@ -46,7 +54,7 @@ const resolvers = {
             });
             const user = await User.findOneAndUpdate(
                { _id: context.user._id },
-               { $addToSet: { scores: score._id } },
+               { $set: { score: score._id } },
                { new: true }
             );
             return user;

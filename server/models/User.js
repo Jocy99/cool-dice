@@ -20,12 +20,10 @@ const userSchema = new Schema({
       required: true,
       minlength: 5,
    },
-   scores: [
-      {
-         type: Schema.Types.ObjectId,
-         ref: 'Score',
-      },
-   ],
+   score: {
+      type: Schema.Types.ObjectId,
+      ref: 'Score',
+   },
 });
 // adds a function that hashes the password before saving a user
 userSchema.pre('save', async function (next) {

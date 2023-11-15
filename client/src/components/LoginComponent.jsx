@@ -29,7 +29,8 @@ export default function LoginComponent() {
          const { data } = await Login({
             variables: { ...formState },
          });
-
+         console.log(data);
+         localStorage.setItem('user', data.email);
          Auth.login(data.login.token);
       } catch (e) {
          console.error(e);

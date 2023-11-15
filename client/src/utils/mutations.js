@@ -19,7 +19,7 @@ export const ADD_SCORE = gql`
    mutation AddScore($totalRolls: Int!, $totalWins: Int!) {
       addScore(totalRolls: $totalRolls, totalWins: $totalWins) {
          username
-         scores {
+         score {
             totalRolls
             totalWins
          }
