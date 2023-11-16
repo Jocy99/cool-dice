@@ -55,19 +55,19 @@ const HomePage = () => {
                                 className="t-row grid-item-name-1"
                                 id={`username${index + 1}`}
                              >
-                                {user.username}
+                                {user?.username}
                              </p>
                              <p
                                 className="t-row grid-item-num-1"
                                 id={`cpm${index + 1}`}
                              >
-                                {user.score?.totalRolls || 0}
+                                {user?.score?.totalRolls || 0}
                              </p>
                              <p
                                 className="t-row grid-item-score-1"
                                 id={`correct${index + 1}`}
                              >
-                                {user.score?.totalWins || 0}
+                                {user?.score?.totalWins || 0}
                              </p>
                           </note>
                        </article>

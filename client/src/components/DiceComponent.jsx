@@ -103,6 +103,8 @@ export default function DiceComponent() {
                      width="85"
                      height="121"
                   />
+                  <br />
+                  Computer
                </span>
             </article>
             <article className="i-col inline-flex">
@@ -114,6 +116,8 @@ export default function DiceComponent() {
                      width="85"
                      height="121"
                   />
+                  <br />
+                  Player
                </span>
             </article>
          </section>
