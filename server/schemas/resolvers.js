@@ -37,16 +37,18 @@ const resolvers = {
          if (!correctPw) {
             throw AuthenticationError;
          }
-         const totalRolls = user.score.totalRolls;
-         const totalWins = user.score.totalWins;
+         const totalRolls = user.score?.totalRolls || 0;
+         const totalWins = user.score?.totalWins || 0;
          const newUser = {
             ...user,
-            totalRolls,
-            totalWins,
+            score: {
+               totalRolls,
+               totalWins,
+            },
          };
          console.log('$$$', newUser);
          const token = signToken(newUser);
-         return { token, user };
+         return { token, user: newUser };
       },
       addScore: async (parent, { totalRolls, totalWins }, context) => {
          if (context.user) {

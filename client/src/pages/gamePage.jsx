@@ -7,7 +7,7 @@ const navStyles = {
    textAlign: 'center',
 };
 
-const gamePage = () => {
+const GamePage = () => {
    return (
       <main>
          <section className="bdy-container">
@@ -20,4 +20,4 @@ const gamePage = () => {
    );
 };
 
-export default gamePage;
+export default GamePage;

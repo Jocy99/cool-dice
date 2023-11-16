@@ -7,7 +7,7 @@ const navStyles = {
    textAlign: 'center',
 };
 
-const signupPage = () => {
+const SignupPage = () => {
    return (
       <main>
          <section className="bdy-container">
@@ -20,4 +20,4 @@ const signupPage = () => {
    );
 };
 
-export default signupPage;
+export default SignupPage;

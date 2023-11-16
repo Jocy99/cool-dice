@@ -29,7 +29,7 @@ export default function LoginComponent() {
          const { data } = await Login({
             variables: { ...formState },
          });
-         console.log(data);
+         console.log("LOGIN DATA", data);
          localStorage.setItem('user', data.email);
          Auth.login(data.login.token);
       } catch (e) {
@@ -89,9 +89,11 @@ export default function LoginComponent() {
                               width: '35%',
                            }}
                         >
-                           <button className="ii-row btn-row" type="submit">
-                              Sign-up
-                           </button>
+                           <Link to="/sign-up">
+                              <button className="ii-row btn-row">
+                                 Sign-up
+                              </button>
+                           </Link>
                            <button className="ii-row btn-row" type="submit">
                               Play
                            </button>
