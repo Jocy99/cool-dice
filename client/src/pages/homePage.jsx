@@ -16,11 +16,10 @@ const navStyles = {
 const HomePage = () => {
    const { loading, data } = useQuery(QUERY_USERS);
    const users = data?.users || [];
-   console.log(data?.users[0].score);
 
-   let highScoreUsers = [...users].sort((a, b) => {
-      const aWins = a.score?.totalWins || 0;
-      const bWins = b.score?.totalWins || 0;
+   let highScoreUsers = [...users]?.sort((a, b) => {
+      const aWins = a?.score?.totalWins || 0;
+      const bWins = b?.score?.totalWins || 0;
       return bWins - aWins;
    });
 
@@ -47,7 +46,7 @@ const HomePage = () => {
                           style={{ ...navStyles }}
                           key={index}
                        >
-                          <note className="grid">
+                          <div className="grid">
                              <p className="tt-row grid-item-position-1">
                                 {index + 1}
                              </p>
@@ -69,7 +68,7 @@ const HomePage = () => {
                              >
                                 {user?.score?.totalWins || 0}
                              </p>
-                          </note>
+                          </div>
                        </article>
                     ))}
             </section>
