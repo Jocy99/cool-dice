@@ -6,7 +6,7 @@ export const QUERY_USERS = gql`
       users {
          email
          username
-         scores {
+         score {
             totalRolls
             totalWins
          }

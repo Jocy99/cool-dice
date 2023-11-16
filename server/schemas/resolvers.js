@@ -7,7 +7,9 @@ const resolvers = {
    Query: {
       // adds the read functions here
       users: async () => {
-         return User.find().populate('score');
+         const users = await User.find().populate('score');
+         console.log('USERS QUERY:', users);
+         return users;
       },
       user: async (parent, { userId }) => {
          return User.findOne({ _id: userId });

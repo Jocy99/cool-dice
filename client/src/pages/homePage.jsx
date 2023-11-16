@@ -13,10 +13,16 @@ const navStyles = {
    textAlign: 'center',
 };
 
-const homePage = () => {
+const HomePage = () => {
    const { loading, data } = useQuery(QUERY_USERS);
    const users = data?.users || [];
-   console.log(data?.users[0].scores);
+   console.log(data?.users[0].score);
+
+   let highScoreUsers = [...users].sort((a, b) => {
+      const aWins = a.score?.totalWins || 0;
+      const bWins = b.score?.totalWins || 0;
+      return bWins - aWins;
+   });
 
    return (
       <main>
@@ -29,50 +35,43 @@ const homePage = () => {
                <p className="t-row grid-item-num-0">Rolls</p>
                <p className="t-row grid-item-score-0">Wins</p>
             </section>
-            <section className="grphc-container score-scroll block">
+            <section
+               className="grphc-container score-scroll block"
+               style={{ marginLeft: '12rem' }}
+            >
                {loading
                   ? 'loading...'
-                  : users.map((user, index) => {
-                       return (
-                          <article className="t-row gold" style={{ ...navStyles }} key={index}>
-                             <note className="grid">
-                                <p className="tt-row grid-item-position-1">1</p>
-                                <p
-                                   className="t-row grid-item-name-1"
-                                   id="username1"
-                                >
-                                   {user.username}
-                                </p>
-                                <p className="t-row grid-item-num-1" id="cpm1">
-                                   {console.log(user.scores)}
-                                   {/* {user.scores.length > 0
-                                      ? user.scores.reduce(totalRolls)
-                                      : ''} */}
-                                </p>
-                                <p
-                                   className="t-row grid-item-score-1"
-                                   id="correct1"
-                                >
-                                   {/* {user.scores.reduce(totalWins)} */}
-                                </p>
-                             </note>
-                          </article>
-                       );
-                    })}
-               <article className="t-row gold">
-                  <note className="grid">
-                     <p className="tt-row grid-item-position-1">1</p>
-                     <p className="t-row grid-item-name-1" id="username1">
-                        Luke
-                     </p>
-                     <p className="t-row grid-item-num-1" id="cpm1">
-                        339
-                     </p>
-                     <p className="t-row grid-item-score-1" id="correct1">
-                        189
-                     </p>
-                  </note>
-               </article>
+                  : highScoreUsers.map((user, index) => (
+                       <article
+                          className="t-row gold"
+                          style={{ ...navStyles }}
+                          key={index}
+                       >
+                          <note className="grid">
+                             <p className="tt-row grid-item-position-1">
+                                {index + 1}
+                             </p>
+                             <p
+                                className="t-row grid-item-name-1"
+                                id={`username${index + 1}`}
+                             >
+                                {user.username}
+                             </p>
+                             <p
+                                className="t-row grid-item-num-1"
+                                id={`cpm${index + 1}`}
+                             >
+                                {user.score?.totalRolls || 0}
+                             </p>
+                             <p
+                                className="t-row grid-item-score-1"
+                                id={`correct${index + 1}`}
+                             >
+                                {user.score?.totalWins || 0}
+                             </p>
+                          </note>
+                       </article>
+                    ))}
             </section>
             <section>
                <LoginComponent />
@@ -82,4 +81,4 @@ const homePage = () => {
    );
 };
 
-export default homePage;
+export default HomePage;
