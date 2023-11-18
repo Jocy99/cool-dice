@@ -25,7 +25,7 @@ export default function LoginComponent() {
    const handleFormSubmit = async (event) => {
       event.preventDefault();
       // added debugger for
-      debugger;
+      // debugger;
       // this is for debugging purposes
       console.log(formState);
       try {
