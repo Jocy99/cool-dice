@@ -10,7 +10,7 @@ export default function LogoutComponent() {
    useEffect(() => {
       // Logout logic
       Auth.logout();
-      window.location.replace('/login');
+      window.location.replace('/');
    }, []);
 
    return (
