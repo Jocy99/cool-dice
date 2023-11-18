@@ -24,12 +24,15 @@ export default function LoginComponent() {
    // submit form
    const handleFormSubmit = async (event) => {
       event.preventDefault();
+      // added debugger for
+      debugger;
+      // this is for debugging purposes
       console.log(formState);
       try {
          const { data } = await Login({
             variables: { ...formState },
          });
-         console.log("LOGIN DATA", data);
+         console.log('LOGIN DATA', data);
          localStorage.setItem('user', data.email);
          Auth.login(data.login.token);
       } catch (e) {
