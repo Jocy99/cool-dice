@@ -14,7 +14,7 @@ const GamePage = () => {
                <h3 style={{ ...navStyles }}>Cool Dice Game</h3>
             </header>
             <DiceComponent />
-            <LogoutComponent />
+            {/* <LogoutComponent /> */}
          </section>
       </main>
    );
