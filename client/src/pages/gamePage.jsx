@@ -1,6 +1,6 @@
 // imported necessary components for the game page
 import DiceComponent from '../components/DiceComponent';
-import LogoutComponent from '../components/LogoutComponent';
+// import LogoutComponent from '../components/LogoutComponent';
 // added style object
 const navStyles = {
    textAlign: 'center',
