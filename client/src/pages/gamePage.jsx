@@ -1,12 +1,11 @@
-// import { useQuery } from '@apollo/client';
-// import { Link } from 'react-router-dom';
-
+// imported necessary components for the game page
 import DiceComponent from '../components/DiceComponent';
-
+import LogoutComponent from '../components/LogoutComponent';
+// added style object
 const navStyles = {
    textAlign: 'center',
 };
-
+// added the game page with a logout component
 const GamePage = () => {
    return (
       <main>
@@ -15,6 +14,7 @@ const GamePage = () => {
                <h3 style={{ ...navStyles }}>Cool Dice Game</h3>
             </header>
             <DiceComponent />
+            <LogoutComponent />
          </section>
       </main>
    );
